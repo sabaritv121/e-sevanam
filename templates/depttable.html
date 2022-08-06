@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<html lang="en">
+<head>
+   <h1>DEPARTMENTS</h1>
+ <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <table class="table">
+  <thead class="table table-striped">
+    <tr>
+      <th scope="col">SL NO.</th>
+      <th scope="col">NAME</th>
+      <th scope="col">PLACE</th>
+      <th scope="col">CONTACT NUMBER</th>
+      <th scope="col">EMAIL</th>
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.place}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.contact_number}}</td>
+
+  {% endfor %}
+
+
+    </tr>
+  </tbody>
+</head>
+<body>
+{% endblock %}
+</body>
+</html>

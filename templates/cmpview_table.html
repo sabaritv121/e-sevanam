@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% block content %}
+
+<html lang="en">
+<head>
+   <h1>Registered complaints</h1>
+ <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <table class="table">
+<!--        <div class="table-responsive">-->
+  <thead class="table table-striped">
+    <tr>
+      <th scope="col">SL NO.</th>
+      <th scope="col">USER</th>
+        <th scope="col">DEPARTMENT</th>
+        <th scope="col">SUBJECT</th>
+      <th scope="col">COMPLAINTS</th>
+      <th scope="col">DATE</th>
+        <th scope="col">CURRENT STATUS</th>
+
+
+
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in data %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+           <td>{{i.user}}</td>
+           <td>{{i.department}}</td>
+        <td>{{i.subject}}</td>
+        <td>{{i.complaint}}</td>
+        <td>{{i.date}}</td>
+<!--        <td>-->
+                        <td>
+                        {% if i.reply == None %}
+                        <p style="color:red"> Pending </p>
+                        {% else %}
+                        {{i.reply}}
+                        {% endif %}
+                    </td>
+                    </td>
+
+  {% endfor %}
+
+
+    </tr>
+  </tbody>
+</head>
+<body>
+{% endblock %}

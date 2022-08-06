@@ -1,0 +1,33 @@
+<!doctype html>
+
+{% extends 'govbase.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Subscribe</title>
+</head>
+<body>
+<main>
+    <h1>E-mail</h1>
+    <p> Message:Document verification compleated...Certificate will be send to registered email within 2 working days</p>
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: red">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <form action="{% url 'subscribe' %}" method="POST">
+        {% csrf_token %}
+        {{ form|crispy}}
+        {{uploads|crispy}}
+        <input type="submit" value="Submit">
+    </form>
+</main>
+{% endblock %}
+</body>
+</html>

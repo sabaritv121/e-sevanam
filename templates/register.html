@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load crispy_forms_filters %}
+{% load static %}
+{% block content %}
+
+
+                <div class="container-fluid">
+                    <h1>Officers Registration</h1>
+                  <div class="card">
+                      <form method="post">
+                      {% csrf_token %}
+                  <div class="container">
+                   {{login_form|crispy}}
+                   {{gov_form|crispy}}
+                      <button type="submit"> submit </button>
+                  </div>
+                </form>
+                </div>
+        {% endblock %}
